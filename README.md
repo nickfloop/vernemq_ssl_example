@@ -23,6 +23,9 @@ In another terminal, start a client that publishes to the test/test topic every 
 
 The publisher client uses mosquitto_pub to connect to the broker using a client certificate generated from the broker CA certificate. The client certificate and keys are the same as used for testing VerneMQ. Since the publisher reuses the subscriber certificate, the broker configuration contains the line `allow_multiple_sessions = on`
 
+## Test with MQTT
+By default, this example configures the pub and sub clients to connect on port 8883. You can test MQTT by changing environment variables in the docker-compose.yml file. Specifically, change the SUB_PORT and PUB_PORT values to 1883 to use MQTT instead.
+
 # Current Behavior
 The broker starts up without error. The broker has an MQTT listener on 1883 (even though there is no `listener.tcp.default` line in the config). The broker also has an MQTTS listener on 0.0.0.0:8883. The address 0.0.0.0:8883 is linked to port 8883 of the Docker Compose broker service.
 

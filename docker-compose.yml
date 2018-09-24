@@ -13,6 +13,8 @@ services:
         - broker
         build: ./sub
         working_dir: /sub
+        environment:
+        - SUB_PORT=1883
         volumes:
         - ./sub:/sub
         command: /sub/run.sh
@@ -21,6 +23,8 @@ services:
         - broker
         build: ./pub
         working_dir: /pub
+        environment:
+        - PUB_PORT=1883
         volumes:
         - ./pub:/pub
         command: /pub/run.sh
