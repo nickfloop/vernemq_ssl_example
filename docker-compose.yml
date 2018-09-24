@@ -14,7 +14,7 @@ services:
         build: ./sub
         working_dir: /sub
         environment:
-        - SUB_PORT=1883
+        - SUB_PORT=8883
         volumes:
         - ./sub:/sub
         command: /sub/run.sh
@@ -24,7 +24,7 @@ services:
         build: ./pub
         working_dir: /pub
         environment:
-        - PUB_PORT=1883
+        - PUB_PORT=8883
         volumes:
         - ./pub:/pub
         command: /pub/run.sh
