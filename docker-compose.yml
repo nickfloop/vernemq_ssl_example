@@ -1,0 +1,26 @@
+version: '2'
+services:
+    broker:
+        build: ./broker
+        working_dir: /broker
+        ports:
+        - 8883:8883
+        volumes:
+        - ./broker:/broker
+        command: /broker/run.sh
+    sub:
+        links:
+        - broker
+        build: ./sub
+        working_dir: /sub
+        volumes:
+        - ./sub:/sub
+        command: /sub/run.sh
+    pub:
+        links:
+        - broker
+        build: ./pub
+        working_dir: /pub
+        volumes:
+        - ./pub:/pub
+        command: /pub/run.sh
