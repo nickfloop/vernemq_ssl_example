@@ -1,5 +1,5 @@
 # VerneMQ SSL Listener Example
-This example is currently not working.
+This example is currently working!
 
 ## Download and Build
 Build with Docker Compose
@@ -26,9 +26,3 @@ The publisher client uses mosquitto_pub to connect to the broker using a client 
 ## Test with MQTT
 By default, this example configures the pub and sub clients to connect on port 8883. You can test MQTT by changing environment variables in the docker-compose.yml file. Specifically, change the SUB_PORT and PUB_PORT values to 1883 to use MQTT instead.
 
-# Current Behavior
-The broker starts up without error. The broker has an MQTT listener on 1883 (even though there is no `listener.tcp.default` line in the config). The broker also has an MQTTS listener on 0.0.0.0:8883. The address 0.0.0.0:8883 is linked to port 8883 of the Docker Compose broker service.
-
-The subscriber hangs silently. It appears the subscriber never receives a CONNACK from the broker.
-
-The publisher hangs . It appears the publisher never receives a CONNACK from the broker, so the publisher reissues a CONNECT message periodically.
